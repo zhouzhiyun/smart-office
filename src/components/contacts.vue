@@ -1,6 +1,6 @@
 <template>
   <div>
-      schedule
+      contacts
   </div>
 </template>
 <script>

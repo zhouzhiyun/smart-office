@@ -1,6 +1,6 @@
 <template>
   <div>
-      schedule
+      home
   </div>
 </template>
 <script>

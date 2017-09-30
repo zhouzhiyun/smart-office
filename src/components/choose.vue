@@ -1,6 +1,6 @@
 <template>
   <div>
-      schedule
+      choose
   </div>
 </template>
 <script>

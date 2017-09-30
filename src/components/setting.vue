@@ -1,6 +1,6 @@
 <template>
   <div>
-      schedule
+      setting
   </div>
 </template>
 <script>

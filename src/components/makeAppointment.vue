@@ -1,6 +1,6 @@
 <template>
   <div>
-      schedule
+      makeoffice
   </div>
 </template>
 <script>

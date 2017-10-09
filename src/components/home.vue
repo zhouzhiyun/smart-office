@@ -4,11 +4,11 @@
     <component id="content" :is="tableView"></component>
     <div id="footer">
       <div @click="tableView='Index'">
-        <i class="iconfont">&#xe75e;</i>
+        <i class="iconfont">&#xe602;</i>
         会议
       </div>
       <div @click="tableView='Schedule'">
-        <i class="iconfont">&#xe66e;</i>
+        <i class="iconfont">&#xe634;</i>
         通讯录
       </div>
       <div @click="tableView='Files'">
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #footer{
   width: 100%;
   height: 44px;
@@ -60,6 +60,9 @@ export default {
 #footer i{
   display: block;
   text-align: center;
+}
+.iconfont{
+  font-size: 20px;
 }
 </style>
 

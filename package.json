@@ -24,6 +24,7 @@
     "style-loader": "^0.18.2",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
+    "vuetify": "^0.16.4",
     "webpack": "^3.6.0"
   }
 }

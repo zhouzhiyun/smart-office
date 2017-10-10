@@ -1,27 +1,27 @@
 <template>
   <div>
     <div class="meetings">
-      <router-link to="/makeoffice" class="meetings-list">
+      <router-link to="/makeoffice" tag="div" class="meetings-list">
         <i class="iconfont">&#xe618;</i>
         预约会议
       </router-link>
-      <router-link to="/" class="meetings-list">
+      <router-link to="/" tag="div" class="meetings-list">
         <i class="iconfont">&#xe618;</i>
         即时会议
       </router-link>
-      <router-link to="/" class="meetings-list">
+      <router-link to="/" tag="div" class="meetings-list">
         <i class="iconfont">&#xe618;</i>
         开始开会
       </router-link>
     </div>
     <div class="messages">
-      <div class="title">会议中心</div>
-      <div class="messages-list">
+      <div class="messages-title">会议中心</div>
+      <div class="messages-list" v-for="meetingMessage in meetingMessages">
         <div>
           <span>yanglei</span>
           <span class="message-title">会议中心...</span>
         </div>
-        <img src="../image/galaxy.jpg" alt="">
+        <img src="../../dist/image/galaxy.jpg" alt="">
         <div>
           <span class="date">2017/10/11 星期二</span>
           <span class="time-limit">30分钟</span>
@@ -32,6 +32,20 @@
 </template>
 <script>
 export default {
+  data(){
+    return{
+      meetingMessages:[
+        {
+          name:"",
+          url:"../image/galaxy.jpg",
+          title:"",
+          date:"",
+          timeLimit:"",
+          success:false
+        }
+      ]
+    }
+  }
 
 }
 </script>
@@ -54,11 +68,12 @@ export default {
   font-size: 40px;
 }
 
-.messages .title {
+.messages .messages-title {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.01);
   border-top: #ddd;
   padding: 6px 15px 6px;
+  font-size: 16px;
 }
 
 .messages-list {

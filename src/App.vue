@@ -10,6 +10,8 @@ export default {
 <style>
 @import '../src/style/common.css';
 @import './iconfont/iconfont.css';
+@import '../node_modules/vuetify/dist/vuetify.min.css';
+/* @import '../node_modules/vuetify/src/stylus/main.styl'; */
 #app{
     width: 100%;
     height: 100%;

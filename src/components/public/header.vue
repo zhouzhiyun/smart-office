@@ -1,12 +1,12 @@
 <template>
     <div id="head">
-        <div class="img"><img src="../../image/cat.jpg"></div>
+        <div class="img" @click="setting"><img src="../../image/cat.jpg"></div>
         <div class="title"><b>会议</b></div>
         <div class="plus">
             <span class="iconfont" @click="show">&#xe601;</span>
             <div class="more" v-if="isShow">
-                <p><span class="iconfont"></span> 扫一扫</p>
-                <p><span class="iconfont"></span>消息</p>
+                <p><span class="iconfont icon-saoyisao"></span> 扫一扫</p>
+                <p @click="info"><span class="iconfont">&#xe66f;</span>消息</p>
             </div>
         </div>
     </div>
@@ -25,6 +25,13 @@ export default {
            }else{
                this.isShow = true;
            }
+        },
+        setting: function () {
+            this.$router.push('/setting')
+        },
+        info: function () {
+            this.isShow = false;
+            this.$router.push('/info')
         }
     }
 }

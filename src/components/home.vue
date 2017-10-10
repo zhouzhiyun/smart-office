@@ -7,16 +7,16 @@
         <i class="iconfont">&#xe602;</i>
         会议
       </div>
-      <div @click="tableView='Schedule'">
+      <div @click="tableView='Contacts'">
         <i class="iconfont">&#xe634;</i>
         通讯录
       </div>
       <div @click="tableView='Files'">
-        <i class="iconfont">&#xe630;</i>
+        <i class="iconfont">&#xe69c;</i>
         文件夹
       </div>
-      <div @click="tableView='Contacts'">
-        <i class="iconfont">&#xe603;</i>
+      <div @click="tableView='Schedule'">
+        <i class="iconfont">&#xe605;</i>
         日程
       </div>
     </div>

@@ -1,9 +1,9 @@
 <template>
   <div>
-      <my-head></my-head>
+      <my-twohead></my-twohead>
       <div class="content">
         <div class="content-people">          
-          <span class="title">参会人员 1/16</span>
+          <span class="p-title">参会人员 1/16</span>
           <div class="lists">
             <div class="list">
               <!--<img src="../image/cat.jpg" alt="">-->
@@ -11,75 +11,62 @@
               <span class="name">发起者</span>
             </div>
             <div class="list">
-              <!--<img src="../image/cat.jpg" alt="">-->              
+              <!--<img src="../image/cat.jpg" alt="">-->
               <router-link to="/choose" tag="div" class="img"></router-link>
               <span class="name">添加</span>
             </div>
           </div>
         </div>
         <div class="theme">
-          <v-text-field label="会议主题" :rules="[(v) => v.length <= 25 || 'Max 25 characters']" :counter="25" v-model="title"></v-text-field>
-          <v-menu
-            lazy
-            :close-on-content-click="false"
-            v-model="menu"
-            transition="scale-transition"
-            offset-y
-            full-width
-            :nudge-right="40"
-            max-width="290px"
-            min-width="290px"
-          >
-            <v-text-field
-              slot="activator"
-              label="Picker in menu"
-              v-model="date"
-              readonly
-            ></v-text-field>
-            <v-date-picker v-model="date" no-title scrollable actions>
-              <template scope="{ save, cancel }">
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
-                  <v-btn flat color="primary" @click="save">OK</v-btn>
-                </v-card-actions>
-              </template>
-            </v-date-picker>
-          </v-menu>
+
         </div>
       </div>
   </div>
 </template>
 <script>
-import myHead from './public/header.vue';
+import myTwohead from './public/twoheader.vue';
+
 export default {
-  data(){
-    return{
-      title:'会议主题',
-      date: null,
-      menu:false,
-      modal: false
+ 
+  data () {
+    return {
+      name: '',
+      email: '',
+      select: null,
+      items: [
+        'Item 1',
+        'Item 2',
+        'Item 3',
+        'Item 4'
+      ],
+      checkbox: false
     }
   },
+  methods: {
+   
+  },
   components:{
-    myHead
+    myTwohead
   }
 }
 </script>
 
 <style scoped>
+.content{
+  /* background-color: #fff; */
+}
 .content-people{
   padding:15px 10px 0;
   font-size:16px;
   overflow:hidden;
-  border-bottom:1px solid #444;
+  border-bottom:1px solid #ccc;
+  background-color: #fff;
 }
 .lists{
   padding:10px 0;
   overflow-x:auto;
   white-space: nowrap;
   overflow-y:hidden;
-  
 }
 .lists .list{
   display:inline-block;
@@ -95,8 +82,14 @@ export default {
   margin-bottom:5px;
   border-radius:50%;
 }
+.lists .list .name{
+  font-size: 12px;
+}
 .theme{
   margin:15px 10px;
+}
+.theme .theme-cont{
+  border-bottom:1px solid #ccc;
 }
 .menu .menu__content{
     top: 42px;

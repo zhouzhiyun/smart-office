@@ -4,7 +4,8 @@
       entry: './src/main.js',
       output: {
           filename: 'bundle.js',
-          path: path.resolve(__dirname, 'dist')
+          path: path.resolve(__dirname, 'dist'),
+          publicPath: '/'
       },
       module: {
           rules: [{
@@ -16,9 +17,10 @@
               },
               {
                   test: /\.(png|svg|jpg|gif)$/,
-                  use: [{
-                      loader: 'file-loader'
-                  }]
+                  use: [
+                      'file-loader',
+                      'url-loader'
+                  ]
               },
               {
                   test: /\.(woff|woff2|eot|ttf|otf)$/,

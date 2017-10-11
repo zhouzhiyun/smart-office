@@ -13,7 +13,7 @@ export default new VueRouter({
     routes: [
         {path: '/', component: Login},
         {path: '/home', component: Home},
-        {path: '/makeoffice', component: Makeoffice},
+        {path: '/makeappointment', component: Makeoffice},
         {path: '/choose', component: Choose},
         {path: '/setting', component: Setting},
         {path: '/info', component: Info}

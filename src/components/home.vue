@@ -1,23 +1,23 @@
 <template>
-  <div>
+  <div id="home">
     <my-head></my-head>
-    <component id="content" :is="tableView"></component>
+    <component id="homeContent" :is="tableView"></component>
     <div id="footer">
-      <div @click="tableView='Index'">
+      <div @click="tableView='Index'" class="bottomBtn">
         <i class="iconfont">&#xe602;</i>
-        会议
+        <span class="bottomText">会议</span>
       </div>
-      <div @click="tableView='Contacts'">
+      <div @click="tableView='Contacts'" class="bottomBtn">
         <i class="iconfont">&#xe634;</i>
-        通讯录
+        <span class="bottomText">通讯录</span>
       </div>
-      <div @click="tableView='Files'">
+      <div @click="tableView='Files'" class="bottomBtn">
         <i class="iconfont">&#xe69c;</i>
-        文件夹
+        <span class="bottomText">文件夹</span>
       </div>
-      <div @click="tableView='Schedule'">
+      <div @click="tableView='Schedule'" class="bottomBtn">
         <i class="iconfont">&#xe605;</i>
-        日程
+        <span class="bottomText">日程</span>
       </div>
     </div>
   </div>
@@ -39,7 +39,12 @@ export default {
     Index,
     Schedule,
     Files,
-    Contacts,
+    Contacts
+  },
+  methods:{
+    hide: function () {
+      this.$store.commit('increment')
+    }
   }
 }
 </script>
@@ -47,7 +52,7 @@ export default {
 <style scoped>
 #footer{
   width: 100%;
-  height: 44px;
+  height: 50px;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -63,6 +68,13 @@ export default {
 }
 .iconfont{
   font-size: 20px;
+}
+.bottomBtn{
+  height: 100%;
+}
+#homeContent{
+  width: 100%;
+  height: calc(100% - 88px);
 }
 </style>
 

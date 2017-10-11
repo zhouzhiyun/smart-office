@@ -8323,18 +8323,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router_router__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuetify__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vuetify__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store_store__ = __webpack_require__(81);
+
+
 
 
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_3_vuetify___default.a)
+__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_4_vuex__["a" /* default */])
 
 var vm=new __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */]({
     el: '#app',
 	render: function (h) {
 		return h(__WEBPACK_IMPORTED_MODULE_1__App_vue__["a" /* default */]);
 	},
-	router: __WEBPACK_IMPORTED_MODULE_2__router_router__["a" /* default */]
+	router: __WEBPACK_IMPORTED_MODULE_2__router_router__["a" /* default */],
+	store: __WEBPACK_IMPORTED_MODULE_5__store_store__["a" /* default */]
 })
 
 /***/ }),
@@ -8529,7 +8535,7 @@ module.exports = function listToStyles (parentId, list) {
 //
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-
+    
 });
 
 
@@ -8583,7 +8589,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODU
     routes: [
         {path: '/', component: __WEBPACK_IMPORTED_MODULE_2__components_login_vue__["a" /* default */]},
         {path: '/home', component: __WEBPACK_IMPORTED_MODULE_3__components_home_vue__["a" /* default */]},
-        {path: '/makeoffice', component: __WEBPACK_IMPORTED_MODULE_5__components_makeAppointment_vue__["a" /* default */]},
+        {path: '/makeappointment', component: __WEBPACK_IMPORTED_MODULE_5__components_makeAppointment_vue__["a" /* default */]},
         {path: '/choose', component: __WEBPACK_IMPORTED_MODULE_6__components_choose_vue__["a" /* default */]},
         {path: '/setting', component: __WEBPACK_IMPORTED_MODULE_4__components_setting_vue__["a" /* default */]},
         {path: '/info', component: __WEBPACK_IMPORTED_MODULE_7__components_info_vue__["a" /* default */]}
@@ -11191,7 +11197,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n#login{\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-self: auto;\n}\n", ""]);
+exports.push([module.i, "\n#login{\n    width: 100%;\n    height: 100%;\n}\n#logo{\n    width: 100%;\n    font-size: 20px;\n    color: #8B008B;\n    text-align: center;\n    margin-top: 100px;\n    font-weight: 600;\n}\n#logo>img{\n    height: 30px;\n}\n#loginContent{\nwidth: 100%;\nmargin-top: 70px;\n}\n#loginContent>input{\n    display: block;\n}\n.username, .password{\n    border-bottom: 1px solid #ccc;\n    padding-left: 5px;\n    margin-bottom: 15px;\n    letter-spacing: 1px;\n}\n.username, .password, .login{\n    width: calc(100% - 30px);\n    height: 35px;\n    font-size: 15px;\n    margin-left: 15px;\n}\n.login{\n    background-color: #0072E3;\n    margin-top: 50px;\n    color: white;\n    border-radius: 4px;\n    letter-spacing: 7px;\n}\n", ""]);
 
 // exports
 
@@ -11206,9 +11212,21 @@ exports.push([module.i, "\n#login{\n    width: 100%;\n    height: 100%;\n    dis
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  
+  methods:{
+      Login: function () {
+          this.$router.push('/home')
+      }
+  }
 });
 
 
@@ -11221,9 +11239,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { attrs: { id: "login" } })
+  return _c("div", { attrs: { id: "login" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { attrs: { id: "loginContent" } }, [
+      _c("input", {
+        staticClass: "username",
+        attrs: { type: "text", placeholder: "企业邮箱" }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "password",
+        attrs: { type: "text", placeholder: "密码" }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "login",
+        attrs: { type: "button", value: "登录" },
+        on: { click: _vm.Login }
+      })
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "logo" } }, [
+      _c("img", { attrs: { src: __webpack_require__(80), alt: "" } }),
+      _vm._v("\n        仁光科技\n    ")
+    ])
+  }
+]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -11322,7 +11370,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n#footer[data-v-7e89c94c]{\r\n  width: 100%;\r\n  height: 44px;\r\n  position: fixed;\r\n  bottom: 0;\r\n  left: 0;\r\n  display: flex;\r\n  justify-content: space-around;\r\n  align-items: center;\r\n  background-color: white;\r\n  border-top: 1px solid rgb(244,244,244);\n}\n#footer i[data-v-7e89c94c]{\r\n  display: block;\r\n  text-align: center;\n}\n.iconfont[data-v-7e89c94c]{\r\n  font-size: 20px;\n}\r\n", ""]);
+exports.push([module.i, "\n#footer[data-v-7e89c94c]{\r\n  width: 100%;\r\n  height: 50px;\r\n  position: fixed;\r\n  bottom: 0;\r\n  left: 0;\r\n  display: flex;\r\n  justify-content: space-around;\r\n  align-items: center;\r\n  background-color: white;\r\n  border-top: 1px solid rgb(244,244,244);\n}\n#footer i[data-v-7e89c94c]{\r\n  display: block;\r\n  text-align: center;\n}\n.iconfont[data-v-7e89c94c]{\r\n  font-size: 20px;\n}\n.bottomBtn[data-v-7e89c94c]{\r\n  height: 100%;\n}\n#homeContent[data-v-7e89c94c]{\r\n  width: 100%;\r\n  height: calc(100% - 88px);\n}\r\n", ""]);
 
 // exports
 
@@ -11378,7 +11426,12 @@ exports.push([module.i, "\n#footer[data-v-7e89c94c]{\r\n  width: 100%;\r\n  heig
     Index: __WEBPACK_IMPORTED_MODULE_1__index_vue__["a" /* default */],
     Schedule: __WEBPACK_IMPORTED_MODULE_2__schedule_vue__["a" /* default */],
     Files: __WEBPACK_IMPORTED_MODULE_3__file_vue__["a" /* default */],
-    Contacts: __WEBPACK_IMPORTED_MODULE_4__contacts_vue__["a" /* default */],
+    Contacts: __WEBPACK_IMPORTED_MODULE_4__contacts_vue__["a" /* default */]
+  },
+  methods:{
+    hide: function () {
+      this.$store.commit('increment')
+    }
   }
 });
 
@@ -11418,7 +11471,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n#head[data-v-423d7f54]{\n    width: 100%;\n    height: 44px;\n    border-bottom: 1px solid #ccc;\n    background-color: lime;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.img>img[data-v-423d7f54]{\n    width: 35px;\n    border-radius: 50%;\n    margin-left: 10px;\n}\n.title[data-v-423d7f54]{\n    font-size: 22px;\n    letter-spacing: 1px;\n}\n.plus>.iconfont[data-v-423d7f54]{\n    font-size: 25px;\n    margin-right: 10px;\n}\n.plus[data-v-423d7f54]{\n    position: relative;\n}\n.more[data-v-423d7f54]{\n    width: 7rem;\n    height: 5rem;\n    position: absolute;\n    right: 10px;\n    top: 40px;\n    background-color: #FAEBD7;\n    color: #555555;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-around;\n    align-items: center;\n    font-size: 15px;\n}\n", ""]);
+exports.push([module.i, "\n#head[data-v-423d7f54]{\n    width: 100%;\n    height: 44px;\n    border-bottom: 1px solid #ccc;\n    background-color: #9B34F2;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n.img>img[data-v-423d7f54]{\n    width: 35px;\n    border-radius: 50%;\n    margin-left: 10px;\n}\n.headTitle[data-v-423d7f54]{\n    font-size: 22px;\n    letter-spacing: 1px;\n}\n.plus>.iconfont[data-v-423d7f54]{\n    font-size: 25px;\n    margin-right: 10px;\n}\n.more[data-v-423d7f54]{\n    width: 7rem;\n    height: 6rem;\n    position: absolute;\n    right: 10px;\n    top: 44px;\n    background-color: #FAEBD7;\n    color: #555555;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-around;\n    align-items: center;\n    font-size: 15px;\n}\n.more>p[data-v-423d7f54]:first-child{\n    margin-top: 10px;\n}\n.more>.iconfont[data-v-423d7f54]{\n    width: 100%;\n    text-align: center;\n    font-size: 18px;\n}\n#cover[data-v-423d7f54]{\n   opacity: 0;\n    position: absolute;\n    top: 0;\n}\n\n", ""]);
 
 // exports
 
@@ -11441,28 +11494,38 @@ exports.push([module.i, "\n#head[data-v-423d7f54]{\n    width: 100%;\n    height
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data () {
         return {
-            isShow:false
+            isShowHeadMore: false
         }
     },
     methods: {
         show: function () {
-           if(this.isShow === true){
-               this.isShow = false;
-           }else{
-               this.isShow = true;
-           }
+           if(this.isShowHeadMore === true){
+                this.isShowHeadMore = false;
+            }else{
+                this.isShowHeadMore = true;
+            } 
         },
         setting: function () {
             this.$router.push('/setting')
         },
         info: function () {
-            this.isShow = false;
             this.$router.push('/info')
         }
+    },
+    updated: function () {
+        var cover = document.getElementById('cover');
+        // console.log(cover);
+        cover.style.width = screen.width + 'px';
+        cover.style.height = screen.height + 'px';
+        
     }
 });
 
@@ -11477,6 +11540,19 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "head" } }, [
+    _c("div", {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.isShowHeadMore,
+          expression: "isShowHeadMore"
+        }
+      ],
+      attrs: { id: "cover" },
+      on: { click: _vm.show }
+    }),
+    _vm._v(" "),
     _c("div", { staticClass: "img", on: { click: _vm.setting } }, [
       _c("img", { attrs: { src: __webpack_require__(32) } })
     ]),
@@ -11486,19 +11562,32 @@ var render = function() {
     _c("div", { staticClass: "plus" }, [
       _c("span", { staticClass: "iconfont", on: { click: _vm.show } }, [
         _vm._v("")
-      ]),
-      _vm._v(" "),
-      _vm.isShow
-        ? _c("div", { staticClass: "more" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("p", { on: { click: _vm.info } }, [
-              _c("span", { staticClass: "iconfont" }, [_vm._v("")]),
-              _vm._v("消息")
-            ])
-          ])
-        : _vm._e()
-    ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.isShowHeadMore,
+            expression: "isShowHeadMore"
+          }
+        ],
+        staticClass: "more"
+      },
+      [
+        _c("p", { staticClass: "iconfont icon-saoyisao" }, [_vm._v("  扫一扫")]),
+        _vm._v(" "),
+        _c(
+          "p",
+          { staticClass: "iconfont icon-xiaoxi", on: { click: _vm.info } },
+          [_vm._v("  消   息")]
+        )
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -11506,16 +11595,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "title" }, [_c("b", [_vm._v("会议")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _c("span", { staticClass: "iconfont icon-saoyisao" }),
-      _vm._v(" 扫一扫")
-    ])
+    return _c("div", { staticClass: "headTitle" }, [_c("b", [_vm._v("会议")])])
   }
 ]
 render._withStripped = true
@@ -11530,11 +11610,9 @@ if (false) {
 
 /***/ }),
 /* 32 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "47e51b67ed323e83dd097f1515ceabbd.jpg");
+module.exports = __webpack_require__.p + "e0181ffd53d7fc7a3c6b71797e292482.jpg";
 
 /***/ }),
 /* 33 */
@@ -11704,7 +11782,7 @@ var render = function() {
           "router-link",
           {
             staticClass: "meetings-list",
-            attrs: { to: "/makeoffice", tag: "div" }
+            attrs: { to: "/makeappointment", tag: "div" }
           },
           [
             _c("i", { staticClass: "iconfont" }, [_vm._v("")]),
@@ -11789,11 +11867,9 @@ if (false) {
 
 /***/ }),
 /* 38 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "b386f75bebc20ba092e6b02274899d97.jpg");
+module.exports = __webpack_require__.p + "78432a3f62dc6b8a170ce7441c561013.jpg";
 
 /***/ }),
 /* 39 */
@@ -11883,7 +11959,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n#schduieTop{\n  width: 100%;\n  height: 35px;\n  font-size: 16px;\n  background-color: #9B34F2;\n  display: flex;\n  align-items: center;\n  margin-top: -2px;\n}\n#schduieTop>div{\n  width: 50%;\n  height: 100%;\n  text-align: center;\n  line-height: 35px;\n}\n.active{\n  color: white;\n}\n", ""]);
 
 // exports
 
@@ -11893,14 +11969,44 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__attend_vue__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__over_vue__ = __webpack_require__(88);
+//
+//
+//
+//
 //
 //
 //
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["a"] = ({
-  
+  data(){
+    return {
+      schduie: 'Attend',
+      isAttendActive: true,
+      isOverActive: false
+    }
+  },
+  components:{
+    Attend: __WEBPACK_IMPORTED_MODULE_0__attend_vue__["a" /* default */],
+    Over: __WEBPACK_IMPORTED_MODULE_1__over_vue__["a" /* default */]
+  },
+   methods:{
+     addattendActive: function () {
+       this.schduie = 'Attend'
+       this.isAttendActive = true
+       this.isOverActive = false
+     },
+     addOverActive: function () {
+       this.schduie = 'Over'
+        this.isAttendActive = false
+       this.isOverActive = true
+     }
+   }
 });
 
 
@@ -11913,7 +12019,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n    schedule\n")])
+  return _c(
+    "div",
+    [
+      _c("div", { attrs: { id: "schduieTop" } }, [
+        _c(
+          "div",
+          {
+            class: { active: _vm.isAttendActive },
+            on: { click: _vm.addattendActive }
+          },
+          [_vm._v("待参加")]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            class: { active: _vm.isOverActive },
+            on: { click: _vm.addOverActive }
+          },
+          [_vm._v("已结束")]
+        )
+      ]),
+      _vm._v(" "),
+      _c(_vm.schduie, { tag: "component" })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12282,15 +12414,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { attrs: { id: "home" } },
     [
       _c("my-head"),
       _vm._v(" "),
-      _c(_vm.tableView, { tag: "component", attrs: { id: "content" } }),
+      _c(_vm.tableView, { tag: "component", attrs: { id: "homeContent" } }),
       _vm._v(" "),
       _c("div", { attrs: { id: "footer" } }, [
         _c(
           "div",
           {
+            staticClass: "bottomBtn",
             on: {
               click: function($event) {
                 _vm.tableView = "Index"
@@ -12299,13 +12433,15 @@ var render = function() {
           },
           [
             _c("i", { staticClass: "iconfont" }, [_vm._v("")]),
-            _vm._v("\n      会议\n    ")
+            _vm._v(" "),
+            _c("span", { staticClass: "bottomText" }, [_vm._v("会议")])
           ]
         ),
         _vm._v(" "),
         _c(
           "div",
           {
+            staticClass: "bottomBtn",
             on: {
               click: function($event) {
                 _vm.tableView = "Contacts"
@@ -12314,13 +12450,15 @@ var render = function() {
           },
           [
             _c("i", { staticClass: "iconfont" }, [_vm._v("")]),
-            _vm._v("\n      通讯录\n    ")
+            _vm._v(" "),
+            _c("span", { staticClass: "bottomText" }, [_vm._v("通讯录")])
           ]
         ),
         _vm._v(" "),
         _c(
           "div",
           {
+            staticClass: "bottomBtn",
             on: {
               click: function($event) {
                 _vm.tableView = "Files"
@@ -12329,13 +12467,15 @@ var render = function() {
           },
           [
             _c("i", { staticClass: "iconfont" }, [_vm._v("")]),
-            _vm._v("\n      文件夹\n    ")
+            _vm._v(" "),
+            _c("span", { staticClass: "bottomText" }, [_vm._v("文件夹")])
           ]
         ),
         _vm._v(" "),
         _c(
           "div",
           {
+            staticClass: "bottomBtn",
             on: {
               click: function($event) {
                 _vm.tableView = "Schedule"
@@ -12344,7 +12484,8 @@ var render = function() {
           },
           [
             _c("i", { staticClass: "iconfont" }, [_vm._v("")]),
-            _vm._v("\n      日程\n    ")
+            _vm._v(" "),
+            _c("span", { staticClass: "bottomText" }, [_vm._v("日程")])
           ]
         )
       ])
@@ -12451,7 +12592,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n#setting[data-v-f42b191a]{\n  width: 100%;\n  height: 100%;\n  font-size: 16px;\n}\n.headImage[data-v-f42b191a]{\n  width: 100%;\n  height: 65px;\n  line-height: 65px;\n  margin-top: 20px;\n  padding: 0 0 0 15px;\n  background-color: white;\n  border-bottom: 1px solid #ccc;\n}\n.name[data-v-f42b191a]{\n  height: 100px;\n  border-bottom: 1px solid #ccc;\n  padding: 0 15px;\n}\n.department[data-v-f42b191a]{\n  height: 50px;\n  line-height: 50px;\n   border-bottom: 1px solid #ccc;\n   position: relative;\n}\n.deText[data-v-f42b191a]{\n  float: left;\n  margin-left: 15px;\n}\n.deBtn[data-v-f42b191a]{\n  float: right;\n  margin-right: 65px;\n}\n#deLists[data-v-f42b191a]{\n  width: 80px;\n  letter-spacing: 1px;\n  position: absolute;\n  top: 50px;\n  right: 40px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  background-color: #888;\n}\n#deLists>span[data-v-f42b191a]{\n  display: inline-block;\n  height: 25px;\n  line-height: 25px;\n}\n.btns[data-v-f42b191a]{\n  width:calc(100% - 30px);\n  height: 35px;\n  margin-left: 15px;\n  background-color: #D15FEE;\n  border-radius: 4px;\n  font-size: 15px;\n}\n.save[data-v-f42b191a]{\n  margin-bottom: 20px;\n}\n#button[data-v-f42b191a]{\n  width: 100%;\n  position: absolute;\n  bottom: 15px;\n}\n", ""]);
+exports.push([module.i, "\n#setting[data-v-f42b191a]{\n  width: 100%;\n  height: 100%;\n  font-size: 16px;\n}\n.headImage[data-v-f42b191a]{\n  width: 100%;\n  height: 65px;\n  line-height: 65px;\n  margin-top: 20px;\n  padding: 0 0 0 15px;\n  background-color: white;\n  border-bottom: 1px solid #ccc;\n}\n.name[data-v-f42b191a]{\n  height: 100px;\n  border-bottom: 1px solid #ccc;\n  padding: 0 15px;\n}\n.depart[data-v-f42b191a]{\n  height: 100px;\n}\n.btns[data-v-f42b191a]{\n  width:calc(100% - 30px);\n  height: 35px;\n  margin-left: 15px;\n  background-color: #D15FEE;\n  border-radius: 4px;\n  font-size: 15px;\n}\n.save[data-v-f42b191a]{\n  margin-bottom: 20px;\n}\n#button[data-v-f42b191a]{\n  width: 100%;\n  position: absolute;\n  bottom: 15px;\n}\n", ""]);
 
 // exports
 
@@ -12462,6 +12603,12 @@ exports.push([module.i, "\n#setting[data-v-f42b191a]{\n  width: 100%;\n  height:
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_twoheader_vue__ = __webpack_require__(6);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12523,29 +12670,13 @@ exports.push([module.i, "\n#setting[data-v-f42b191a]{\n  width: 100%;\n  height:
           (v) => !!v || '名字不能为空',
           (v) => v.length <= 10 || 'Name must be less than 10 characters'
         ],
-        e1: null,
-        items:[
-          {text:'人事部'},
-          {text:'财务部'},
-          {text:'研发部'},
-          {text:'设计部'},
-          {text:'销售部'},
-        ],
-        states: [
-          'Alabama','Alaska','American Samoa','Arizona',
-          'Arkansas','California','Colorado','Connecticut',
-          'Delaware','District of Columbia','Federated States of Micronesia',
-          'Florida','Georgia','Guam','Hawaii','Idaho',
-          'Illinois','Indiana','Iowa','Kansas','Kentucky',
-          'Louisiana','Maine','Marshall Islands','Maryland',
-          'Massachusetts','Michigan','Minnesota','Mississippi',
-          'Missouri','Montana','Nebraska','Nevada',
-          'New Hampshire','New Jersey','New Mexico','New York',
-          'North Carolina','North Dakota','Northern Mariana Islands','Ohio',
-          'Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico',
-          'Rhode Island','South Carolina','South Dakota','Tennessee',
-          'Texas','Utah','Vermont','Virgin Island','Virginia',
-          'Washington','West Virginia','Wisconsin','Wyoming'
+        select: { state: 'Florida', abbr: 'FL' },
+        items: [
+          { state: 'Florida', abbr: 'FL' },
+          { state: 'Georgia', abbr: 'GA' },
+          { state: 'Nebraska', abbr: 'NE' },
+          { state: 'California', abbr: 'CA' },
+          { state: 'New York', abbr: 'NY' }
         ]
     }
   },
@@ -12590,7 +12721,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n#twoHeader{\n    width: 100%;\n    height: 44px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    background-color: lime;\n    font-size: 18px;\n}\n#twoHeader>div{\n    margin-left: 10px;\n}\n#twoHeader>.iconfont{\n    font-size: 20px;\n}\n", ""]);
+exports.push([module.i, "\n#twoHeader{\n    width: 100%;\n    height: 44px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    background-color: #9B34F2;\n    font-size: 18px;\n}\n#twoHeader>div{\n    margin-left: 10px;\n}\n#twoHeader>.iconfont{\n    font-size: 20px;\n}\n", ""]);
 
 // exports
 
@@ -12699,8 +12830,8 @@ var render = function() {
           ),
           _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "department" },
+            "v-app",
+            { attrs: { id: "inspire" } },
             [
               _c(
                 "v-card",
@@ -12719,28 +12850,33 @@ var render = function() {
                             [
                               _c(
                                 "v-flex",
-                                { attrs: { xs6: "" } },
-                                [_c("v-subheader", [_vm._v("我的部门")])],
+                                { attrs: { xs12: "", sm6: "" } },
+                                [
+                                  _c("v-subheader", {
+                                    domProps: {
+                                      textContent: _vm._s("Autocomplete")
+                                    }
+                                  })
+                                ],
                                 1
                               ),
                               _vm._v(" "),
                               _c(
                                 "v-flex",
-                                { attrs: { xs6: "" } },
+                                { attrs: { xs12: "", sm6: "" } },
                                 [
                                   _c("v-select", {
                                     attrs: {
-                                      items: _vm.items,
+                                      items: _vm.states,
                                       label: "Select",
-                                      "single-line": "",
-                                      bottom: ""
+                                      autocomplete: ""
                                     },
                                     model: {
-                                      value: _vm.e1,
+                                      value: _vm.a1,
                                       callback: function($$v) {
-                                        _vm.e1 = $$v
+                                        _vm.a1 = $$v
                                       },
-                                      expression: "e1"
+                                      expression: "a1"
                                     }
                                   })
                                 ],
@@ -29447,6 +29583,1211 @@ function unbind(el, binding) {
 /******/ ]);
 });
 //# sourceMappingURL=vuetify.js.map
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fac65bbe4eb79e23fe0cf8cb537925c6.jpg";
+
+/***/ }),
+/* 81 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(82);
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
+
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
+    state:{
+        
+    },
+    getter:{
+
+    },
+    mutations:{
+        
+    },
+    actions:{
+        
+    }
+}));
+
+/***/ }),
+/* 82 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/* unused harmony export Store */
+/* unused harmony export install */
+/* unused harmony export mapState */
+/* unused harmony export mapMutations */
+/* unused harmony export mapGetters */
+/* unused harmony export mapActions */
+/* unused harmony export createNamespacedHelpers */
+/**
+ * vuex v2.4.1
+ * (c) 2017 Evan You
+ * @license MIT
+ */
+var applyMixin = function (Vue) {
+  var version = Number(Vue.version.split('.')[0]);
+
+  if (version >= 2) {
+    Vue.mixin({ beforeCreate: vuexInit });
+  } else {
+    // override init and inject vuex init procedure
+    // for 1.x backwards compatibility.
+    var _init = Vue.prototype._init;
+    Vue.prototype._init = function (options) {
+      if ( options === void 0 ) options = {};
+
+      options.init = options.init
+        ? [vuexInit].concat(options.init)
+        : vuexInit;
+      _init.call(this, options);
+    };
+  }
+
+  /**
+   * Vuex init hook, injected into each instances init hooks list.
+   */
+
+  function vuexInit () {
+    var options = this.$options;
+    // store injection
+    if (options.store) {
+      this.$store = typeof options.store === 'function'
+        ? options.store()
+        : options.store;
+    } else if (options.parent && options.parent.$store) {
+      this.$store = options.parent.$store;
+    }
+  }
+};
+
+var devtoolHook =
+  typeof window !== 'undefined' &&
+  window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+
+function devtoolPlugin (store) {
+  if (!devtoolHook) { return }
+
+  store._devtoolHook = devtoolHook;
+
+  devtoolHook.emit('vuex:init', store);
+
+  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+    store.replaceState(targetState);
+  });
+
+  store.subscribe(function (mutation, state) {
+    devtoolHook.emit('vuex:mutation', mutation, state);
+  });
+}
+
+/**
+ * Get the first item that pass the test
+ * by second argument function
+ *
+ * @param {Array} list
+ * @param {Function} f
+ * @return {*}
+ */
+/**
+ * Deep copy the given object considering circular structure.
+ * This function caches all nested objects and its copies.
+ * If it detects circular structure, use cached copy to avoid infinite loop.
+ *
+ * @param {*} obj
+ * @param {Array<Object>} cache
+ * @return {*}
+ */
+
+
+/**
+ * forEach for object
+ */
+function forEachValue (obj, fn) {
+  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
+}
+
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+function isPromise (val) {
+  return val && typeof val.then === 'function'
+}
+
+function assert (condition, msg) {
+  if (!condition) { throw new Error(("[vuex] " + msg)) }
+}
+
+var Module = function Module (rawModule, runtime) {
+  this.runtime = runtime;
+  this._children = Object.create(null);
+  this._rawModule = rawModule;
+  var rawState = rawModule.state;
+  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
+};
+
+var prototypeAccessors$1 = { namespaced: { configurable: true } };
+
+prototypeAccessors$1.namespaced.get = function () {
+  return !!this._rawModule.namespaced
+};
+
+Module.prototype.addChild = function addChild (key, module) {
+  this._children[key] = module;
+};
+
+Module.prototype.removeChild = function removeChild (key) {
+  delete this._children[key];
+};
+
+Module.prototype.getChild = function getChild (key) {
+  return this._children[key]
+};
+
+Module.prototype.update = function update (rawModule) {
+  this._rawModule.namespaced = rawModule.namespaced;
+  if (rawModule.actions) {
+    this._rawModule.actions = rawModule.actions;
+  }
+  if (rawModule.mutations) {
+    this._rawModule.mutations = rawModule.mutations;
+  }
+  if (rawModule.getters) {
+    this._rawModule.getters = rawModule.getters;
+  }
+};
+
+Module.prototype.forEachChild = function forEachChild (fn) {
+  forEachValue(this._children, fn);
+};
+
+Module.prototype.forEachGetter = function forEachGetter (fn) {
+  if (this._rawModule.getters) {
+    forEachValue(this._rawModule.getters, fn);
+  }
+};
+
+Module.prototype.forEachAction = function forEachAction (fn) {
+  if (this._rawModule.actions) {
+    forEachValue(this._rawModule.actions, fn);
+  }
+};
+
+Module.prototype.forEachMutation = function forEachMutation (fn) {
+  if (this._rawModule.mutations) {
+    forEachValue(this._rawModule.mutations, fn);
+  }
+};
+
+Object.defineProperties( Module.prototype, prototypeAccessors$1 );
+
+var ModuleCollection = function ModuleCollection (rawRootModule) {
+  // register root module (Vuex.Store options)
+  this.register([], rawRootModule, false);
+};
+
+ModuleCollection.prototype.get = function get (path) {
+  return path.reduce(function (module, key) {
+    return module.getChild(key)
+  }, this.root)
+};
+
+ModuleCollection.prototype.getNamespace = function getNamespace (path) {
+  var module = this.root;
+  return path.reduce(function (namespace, key) {
+    module = module.getChild(key);
+    return namespace + (module.namespaced ? key + '/' : '')
+  }, '')
+};
+
+ModuleCollection.prototype.update = function update$1 (rawRootModule) {
+  update([], this.root, rawRootModule);
+};
+
+ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
+    var this$1 = this;
+    if ( runtime === void 0 ) runtime = true;
+
+  if (process.env.NODE_ENV !== 'production') {
+    assertRawModule(path, rawModule);
+  }
+
+  var newModule = new Module(rawModule, runtime);
+  if (path.length === 0) {
+    this.root = newModule;
+  } else {
+    var parent = this.get(path.slice(0, -1));
+    parent.addChild(path[path.length - 1], newModule);
+  }
+
+  // register nested modules
+  if (rawModule.modules) {
+    forEachValue(rawModule.modules, function (rawChildModule, key) {
+      this$1.register(path.concat(key), rawChildModule, runtime);
+    });
+  }
+};
+
+ModuleCollection.prototype.unregister = function unregister (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+  if (!parent.getChild(key).runtime) { return }
+
+  parent.removeChild(key);
+};
+
+function update (path, targetModule, newModule) {
+  if (process.env.NODE_ENV !== 'production') {
+    assertRawModule(path, newModule);
+  }
+
+  // update target module
+  targetModule.update(newModule);
+
+  // update nested modules
+  if (newModule.modules) {
+    for (var key in newModule.modules) {
+      if (!targetModule.getChild(key)) {
+        if (process.env.NODE_ENV !== 'production') {
+          console.warn(
+            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
+            'manual reload is needed'
+          );
+        }
+        return
+      }
+      update(
+        path.concat(key),
+        targetModule.getChild(key),
+        newModule.modules[key]
+      );
+    }
+  }
+}
+
+function assertRawModule (path, rawModule) {
+  ['getters', 'actions', 'mutations'].forEach(function (key) {
+    if (!rawModule[key]) { return }
+
+    forEachValue(rawModule[key], function (value, type) {
+      assert(
+        typeof value === 'function',
+        makeAssertionMessage(path, key, type, value)
+      );
+    });
+  });
+}
+
+function makeAssertionMessage (path, key, type, value) {
+  var buf = key + " should be function but \"" + key + "." + type + "\"";
+  if (path.length > 0) {
+    buf += " in module \"" + (path.join('.')) + "\"";
+  }
+  buf += " is " + (JSON.stringify(value)) + ".";
+
+  return buf
+}
+
+var Vue; // bind on install
+
+var Store = function Store (options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  // Auto install if it is not done yet and `window` has `Vue`.
+  // To allow users to avoid auto-installation in some cases,
+  // this code should be placed here. See #731
+  if (!Vue && typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
+    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
+    assert(this instanceof Store, "Store must be called with the new operator.");
+  }
+
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  var state = options.state; if ( state === void 0 ) state = {};
+  if (typeof state === 'function') {
+    state = state();
+  }
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.forEach(function (plugin) { return plugin(this$1); });
+
+  if (Vue.config.devtools) {
+    devtoolPlugin(this);
+  }
+};
+
+var prototypeAccessors = { state: { configurable: true } };
+
+prototypeAccessors.state.get = function () {
+  return this._vm._data.$$state
+};
+
+prototypeAccessors.state.set = function (v) {
+  if (process.env.NODE_ENV !== 'production') {
+    assert(false, "Use store.replaceState() to explicit replace store state.");
+  }
+};
+
+Store.prototype.commit = function commit (_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.error(("[vuex] unknown mutation type: " + type));
+    }
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    options && options.silent
+  ) {
+    console.warn(
+      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
+      'Use the filter functionality in the vue-devtools'
+    );
+  }
+};
+
+Store.prototype.dispatch = function dispatch (_type, _payload) {
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var entry = this._actions[type];
+  if (!entry) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.error(("[vuex] unknown action type: " + type));
+    }
+    return
+  }
+  return entry.length > 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload)
+};
+
+Store.prototype.subscribe = function subscribe (fn) {
+  var subs = this._subscribers;
+  if (subs.indexOf(fn) < 0) {
+    subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i > -1) {
+      subs.splice(i, 1);
+    }
+  }
+};
+
+Store.prototype.watch = function watch (getter, cb, options) {
+    var this$1 = this;
+
+  if (process.env.NODE_ENV !== 'production') {
+    assert(typeof getter === 'function', "store.watch only accepts a function.");
+  }
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+};
+
+Store.prototype.replaceState = function replaceState (state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+};
+
+Store.prototype.registerModule = function registerModule (path, rawModule) {
+  if (typeof path === 'string') { path = [path]; }
+
+  if (process.env.NODE_ENV !== 'production') {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+    assert(path.length > 0, 'cannot register the root module by using registerModule.');
+  }
+
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path));
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+};
+
+Store.prototype.unregisterModule = function unregisterModule (path) {
+    var this$1 = this;
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if (process.env.NODE_ENV !== 'production') {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+};
+
+Store.prototype.hotUpdate = function hotUpdate (newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+};
+
+Store.prototype._withCommit = function _withCommit (fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+};
+
+Object.defineProperties( Store.prototype, prototypeAccessors );
+
+function resetStore (store, hot) {
+  store._actions = Object.create(null);
+  store._mutations = Object.create(null);
+  store._wrappedGetters = Object.create(null);
+  store._modulesNamespaceMap = Object.create(null);
+  var state = store.state;
+  // init all modules
+  installModule(store, state, [], store._modules.root, true);
+  // reset vm
+  resetStoreVM(store, state, hot);
+}
+
+function resetStoreVM (store, state, hot) {
+  var oldVm = store._vm;
+
+  // bind store public getters
+  store.getters = {};
+  var wrappedGetters = store._wrappedGetters;
+  var computed = {};
+  forEachValue(wrappedGetters, function (fn, key) {
+    // use computed to leverage its lazy-caching mechanism
+    computed[key] = function () { return fn(store); };
+    Object.defineProperty(store.getters, key, {
+      get: function () { return store._vm[key]; },
+      enumerable: true // for local getters
+    });
+  });
+
+  // use a Vue instance to store the state tree
+  // suppress warnings just in case the user has added
+  // some funky global mixins
+  var silent = Vue.config.silent;
+  Vue.config.silent = true;
+  store._vm = new Vue({
+    data: {
+      $$state: state
+    },
+    computed: computed
+  });
+  Vue.config.silent = silent;
+
+  // enable strict mode for new vm
+  if (store.strict) {
+    enableStrictMode(store);
+  }
+
+  if (oldVm) {
+    if (hot) {
+      // dispatch changes in all subscribed watchers
+      // to force getter re-evaluation for hot reloading.
+      store._withCommit(function () {
+        oldVm._data.$$state = null;
+      });
+    }
+    Vue.nextTick(function () { return oldVm.$destroy(); });
+  }
+}
+
+function installModule (store, rootState, path, module, hot) {
+  var isRoot = !path.length;
+  var namespace = store._modules.getNamespace(path);
+
+  // register in namespace map
+  if (module.namespaced) {
+    store._modulesNamespaceMap[namespace] = module;
+  }
+
+  // set state
+  if (!isRoot && !hot) {
+    var parentState = getNestedState(rootState, path.slice(0, -1));
+    var moduleName = path[path.length - 1];
+    store._withCommit(function () {
+      Vue.set(parentState, moduleName, module.state);
+    });
+  }
+
+  var local = module.context = makeLocalContext(store, namespace, path);
+
+  module.forEachMutation(function (mutation, key) {
+    var namespacedType = namespace + key;
+    registerMutation(store, namespacedType, mutation, local);
+  });
+
+  module.forEachAction(function (action, key) {
+    var namespacedType = namespace + key;
+    registerAction(store, namespacedType, action, local);
+  });
+
+  module.forEachGetter(function (getter, key) {
+    var namespacedType = namespace + key;
+    registerGetter(store, namespacedType, getter, local);
+  });
+
+  module.forEachChild(function (child, key) {
+    installModule(store, rootState, path.concat(key), child, hot);
+  });
+}
+
+/**
+ * make localized dispatch, commit, getters and state
+ * if there is no namespace, just use root ones
+ */
+function makeLocalContext (store, namespace, path) {
+  var noNamespace = namespace === '';
+
+  var local = {
+    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if (process.env.NODE_ENV !== 'production' && !store._actions[type]) {
+          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      return store.dispatch(type, payload)
+    },
+
+    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if (process.env.NODE_ENV !== 'production' && !store._mutations[type]) {
+          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      store.commit(type, payload, options);
+    }
+  };
+
+  // getters and state object must be gotten lazily
+  // because they will be changed by vm update
+  Object.defineProperties(local, {
+    getters: {
+      get: noNamespace
+        ? function () { return store.getters; }
+        : function () { return makeLocalGetters(store, namespace); }
+    },
+    state: {
+      get: function () { return getNestedState(store.state, path); }
+    }
+  });
+
+  return local
+}
+
+function makeLocalGetters (store, namespace) {
+  var gettersProxy = {};
+
+  var splitPos = namespace.length;
+  Object.keys(store.getters).forEach(function (type) {
+    // skip if the target getter is not match this namespace
+    if (type.slice(0, splitPos) !== namespace) { return }
+
+    // extract local getter type
+    var localType = type.slice(splitPos);
+
+    // Add a port to the getters proxy.
+    // Define as getter property because
+    // we do not want to evaluate the getters in this time.
+    Object.defineProperty(gettersProxy, localType, {
+      get: function () { return store.getters[type]; },
+      enumerable: true
+    });
+  });
+
+  return gettersProxy
+}
+
+function registerMutation (store, type, handler, local) {
+  var entry = store._mutations[type] || (store._mutations[type] = []);
+  entry.push(function wrappedMutationHandler (payload) {
+    handler.call(store, local.state, payload);
+  });
+}
+
+function registerAction (store, type, handler, local) {
+  var entry = store._actions[type] || (store._actions[type] = []);
+  entry.push(function wrappedActionHandler (payload, cb) {
+    var res = handler.call(store, {
+      dispatch: local.dispatch,
+      commit: local.commit,
+      getters: local.getters,
+      state: local.state,
+      rootGetters: store.getters,
+      rootState: store.state
+    }, payload, cb);
+    if (!isPromise(res)) {
+      res = Promise.resolve(res);
+    }
+    if (store._devtoolHook) {
+      return res.catch(function (err) {
+        store._devtoolHook.emit('vuex:error', err);
+        throw err
+      })
+    } else {
+      return res
+    }
+  });
+}
+
+function registerGetter (store, type, rawGetter, local) {
+  if (store._wrappedGetters[type]) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.error(("[vuex] duplicate getter key: " + type));
+    }
+    return
+  }
+  store._wrappedGetters[type] = function wrappedGetter (store) {
+    return rawGetter(
+      local.state, // local state
+      local.getters, // local getters
+      store.state, // root state
+      store.getters // root getters
+    )
+  };
+}
+
+function enableStrictMode (store) {
+  store._vm.$watch(function () { return this._data.$$state }, function () {
+    if (process.env.NODE_ENV !== 'production') {
+      assert(store._committing, "Do not mutate vuex store state outside mutation handlers.");
+    }
+  }, { deep: true, sync: true });
+}
+
+function getNestedState (state, path) {
+  return path.length
+    ? path.reduce(function (state, key) { return state[key]; }, state)
+    : state
+}
+
+function unifyObjectStyle (type, payload, options) {
+  if (isObject(type) && type.type) {
+    options = payload;
+    payload = type;
+    type = type.type;
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    assert(typeof type === 'string', ("Expects string as the type, but found " + (typeof type) + "."));
+  }
+
+  return { type: type, payload: payload, options: options }
+}
+
+function install (_Vue) {
+  if (Vue && _Vue === Vue) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.error(
+        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
+      );
+    }
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}
+
+var mapState = normalizeNamespace(function (namespace, states) {
+  var res = {};
+  normalizeMap(states).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedState () {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
+        if (!module) {
+          return
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === 'function'
+        ? val.call(this, state, getters)
+        : state[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+var mapMutations = normalizeNamespace(function (namespace, mutations) {
+  var res = {};
+  normalizeMap(mutations).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedMutation () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      var commit = this.$store.commit;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
+        if (!module) {
+          return
+        }
+        commit = module.context.commit;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [commit].concat(args))
+        : commit.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+var mapGetters = normalizeNamespace(function (namespace, getters) {
+  var res = {};
+  normalizeMap(getters).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    val = namespace + val;
+    res[key] = function mappedGetter () {
+      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
+        return
+      }
+      if (process.env.NODE_ENV !== 'production' && !(val in this.$store.getters)) {
+        console.error(("[vuex] unknown getter: " + val));
+        return
+      }
+      return this.$store.getters[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+var mapActions = normalizeNamespace(function (namespace, actions) {
+  var res = {};
+  normalizeMap(actions).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedAction () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      var dispatch = this.$store.dispatch;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
+        if (!module) {
+          return
+        }
+        dispatch = module.context.dispatch;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [dispatch].concat(args))
+        : dispatch.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+var createNamespacedHelpers = function (namespace) { return ({
+  mapState: mapState.bind(null, namespace),
+  mapGetters: mapGetters.bind(null, namespace),
+  mapMutations: mapMutations.bind(null, namespace),
+  mapActions: mapActions.bind(null, namespace)
+}); };
+
+function normalizeMap (map) {
+  return Array.isArray(map)
+    ? map.map(function (key) { return ({ key: key, val: key }); })
+    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
+}
+
+function normalizeNamespace (fn) {
+  return function (namespace, map) {
+    if (typeof namespace !== 'string') {
+      map = namespace;
+      namespace = '';
+    } else if (namespace.charAt(namespace.length - 1) !== '/') {
+      namespace += '/';
+    }
+    return fn(namespace, map)
+  }
+}
+
+function getModuleByNamespace (store, helper, namespace) {
+  var module = store._modulesNamespaceMap[namespace];
+  if (process.env.NODE_ENV !== 'production' && !module) {
+    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
+  }
+  return module
+}
+
+var index_esm = {
+  Store: Store,
+  install: install,
+  version: '2.4.1',
+  mapState: mapState,
+  mapMutations: mapMutations,
+  mapGetters: mapGetters,
+  mapActions: mapActions,
+  createNamespacedHelpers: createNamespacedHelpers
+};
+
+
+/* harmony default export */ __webpack_exports__["a"] = (index_esm);
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(4)))
+
+/***/ }),
+/* 83 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_attend_vue__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7dd17c47_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_attend_vue__ = __webpack_require__(87);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(84)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_attend_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7dd17c47_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_attend_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src\\components\\attend.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] attend.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7dd17c47", Component.options)
+  } else {
+    hotAPI.reload("data-v-7dd17c47", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(85);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("05f712ac", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7dd17c47\",\"scoped\":false,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./attend.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7dd17c47\",\"scoped\":false,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./attend.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  name:'attend'
+});
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n    attend\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-7dd17c47", esExports)
+  }
+}
+
+/***/ }),
+/* 88 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_over_vue__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_89e3e27e_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_over_vue__ = __webpack_require__(92);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(89)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+
+/* template */
+
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_over_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_89e3e27e_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_over_vue__["a" /* default */],
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src\\components\\over.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] over.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-89e3e27e", Component.options)
+  } else {
+    hotAPI.reload("data-v-89e3e27e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(90);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(1)("037b7b1a", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-89e3e27e\",\"scoped\":false,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./over.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-89e3e27e\",\"scoped\":false,\"hasInlineConfig\":false}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./over.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 91 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  name: 'over'
+});
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._v("\n    over\n")])
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-hot-reload-api").rerender("data-v-89e3e27e", esExports)
+  }
+}
 
 /***/ })
 /******/ ]);

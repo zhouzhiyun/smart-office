@@ -2,12 +2,16 @@ import Vue from 'vue';
 import app from './App.vue';
 import router from './router/router';
 import Vuetify from 'vuetify';
+import Vuex from 'vuex';
+import store from './store/store';
 Vue.use(Vuetify)
+Vue.use(Vuex)
 
 var vm=new Vue({
     el: '#app',
 	render: function (h) {
 		return h(app);
 	},
-	router
+	router,
+	store
 })

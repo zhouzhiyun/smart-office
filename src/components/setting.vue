@@ -22,22 +22,28 @@
         <v-text-field label="名字" v-model="name" :rules="nameRules" :counter="10" required></v-text-field>
       </v-form>
 
-      <div class="department">
-        <v-card color="grey lighten-4" flat>
-          <v-card-text>
-            <v-container fluid>
-              <v-layout row wrap>
-                <v-flex xs6>
-                  <v-subheader>我的部门</v-subheader>
-                </v-flex>
-                <v-flex xs6>
-                  <v-select v-bind:items="items"  v-model="e1" label="Select" single-line bottom></v-select>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
-        </v-card>
-      </div>
+     
+  <v-app id="inspire">
+    <v-card color="grey lighten-4" flat>
+      <v-card-text>
+        <v-container fluid>
+          <v-layout row wrap>
+            <v-flex xs12 sm6>
+              <v-subheader v-text="'Autocomplete'"></v-subheader>
+            </v-flex>
+            <v-flex xs12 sm6>
+              <v-select
+                v-bind:items="states"
+                v-model="a1"
+                label="Select"
+                autocomplete
+              ></v-select>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-card-text>
+    </v-card>
+  </v-app>
 
      
     </div>
@@ -59,29 +65,13 @@ export default {
           (v) => !!v || '名字不能为空',
           (v) => v.length <= 10 || 'Name must be less than 10 characters'
         ],
-        e1: null,
-        items:[
-          {text:'人事部'},
-          {text:'财务部'},
-          {text:'研发部'},
-          {text:'设计部'},
-          {text:'销售部'},
-        ],
-        states: [
-          'Alabama','Alaska','American Samoa','Arizona',
-          'Arkansas','California','Colorado','Connecticut',
-          'Delaware','District of Columbia','Federated States of Micronesia',
-          'Florida','Georgia','Guam','Hawaii','Idaho',
-          'Illinois','Indiana','Iowa','Kansas','Kentucky',
-          'Louisiana','Maine','Marshall Islands','Maryland',
-          'Massachusetts','Michigan','Minnesota','Mississippi',
-          'Missouri','Montana','Nebraska','Nevada',
-          'New Hampshire','New Jersey','New Mexico','New York',
-          'North Carolina','North Dakota','Northern Mariana Islands','Ohio',
-          'Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico',
-          'Rhode Island','South Carolina','South Dakota','Tennessee',
-          'Texas','Utah','Vermont','Virgin Island','Virginia',
-          'Washington','West Virginia','Wisconsin','Wyoming'
+        select: { state: 'Florida', abbr: 'FL' },
+        items: [
+          { state: 'Florida', abbr: 'FL' },
+          { state: 'Georgia', abbr: 'GA' },
+          { state: 'Nebraska', abbr: 'NE' },
+          { state: 'California', abbr: 'CA' },
+          { state: 'New York', abbr: 'NY' }
         ]
     }
   },
@@ -112,36 +102,8 @@ export default {
     padding: 0 15px;
 
   }
-  .department{
-    height: 50px;
-    line-height: 50px;
-     border-bottom: 1px solid #ccc;
-     position: relative;
-  }
-  .deText{
-    float: left;
-    margin-left: 15px;
-  }
-  .deBtn{
-    float: right;
-    margin-right: 65px;
-  }
-  #deLists{
-    width: 80px;
-    letter-spacing: 1px;
-    position: absolute;
-    top: 50px;
-    right: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #888;
-  }
-  #deLists>span{
-    display: inline-block;
-    height: 25px;
-    line-height: 25px;
+  .depart{
+    height: 100px;
   }
   .btns{
     width:calc(100% - 30px);

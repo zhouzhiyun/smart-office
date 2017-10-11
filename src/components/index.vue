@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="meetings">
-      <router-link to="/makeoffice" tag="div" class="meetings-list">
+      <router-link to="/makeappointment" tag="div" class="meetings-list">
         <i class="iconfont">&#xe618;</i>
         预约会议
       </router-link>

@@ -41,10 +41,11 @@ export default {
         width: 100%;
         height: 44px;
         border-bottom: 1px solid #ccc;
-        background-color: #00bcd4;
+        background-color: #424242;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        color:#fff;
         
     }
     .img>img{

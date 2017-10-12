@@ -23,6 +23,8 @@ export default {
         align-items: center;
         background-color: #00bcd4;
         font-size: 18px;
+        color:#fff;
+        background-color: #424242;
     }
     #twoHeader>div{
         margin-left: 10px;

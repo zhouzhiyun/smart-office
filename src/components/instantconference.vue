@@ -48,8 +48,6 @@ export default {
     bottom:15px;
     margin:0 2%;
     width:96%;
-
 }
-
 </style>
 

@@ -21,7 +21,7 @@
           <span>yanglei</span>
           <span class="message-title">会议中心...</span>
         </div>
-        <img src="../../dist/image/galaxy.jpg" alt="">
+        <img src="../image/galaxy.jpg">
         <div>
           <span class="date">2017/10/11 星期二</span>
           <span class="time-limit">30分钟</span>
@@ -31,13 +31,14 @@
   </div>
 </template>
 <script>
+import img from '../image/galaxy.jpg'
 export default {
   data(){
     return{
       meetingMessages:[
         {
           name:"",
-          url:"../image/galaxy.jpg",
+          url:img,
           title:"",
           date:"",
           timeLimit:"",

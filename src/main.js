@@ -6,8 +6,9 @@ import Vuex from 'vuex';
 import store from './store/store';
 Vue.use(Vuetify)
 Vue.use(Vuex)
+Vue.use(Vuetify);
 
-var vm=new Vue({
+var vm = new Vue({
     el: '#app',
 	render: function (h) {
 		return h(app);

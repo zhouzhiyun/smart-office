@@ -56,6 +56,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        
     }
     .img>img{
         width: 35px;
@@ -83,6 +84,7 @@ export default {
         justify-content: space-around;
         align-items: center;
         font-size: 15px;
+        z-index: 1;
     }
     .more>p:first-child{
         margin-top: 10px;

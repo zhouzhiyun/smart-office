@@ -1,6 +1,6 @@
 <template>
   <div>
-      <my-twohead></my-twohead>
+      <my-twohead :text="text"></my-twohead>
       <search></search>
       <div class="part">
         <div class="part-list">
@@ -9,8 +9,7 @@
           </div>
           <div class="part-checkbox">           
               <v-checkbox v-bind:label="`Checkbox 2: ${ex3.toString()}`" v-model="ex3" color="indigo"></v-checkbox>
-              <v-checkbox v-bind:label="`Checkbox 2: ${ex4.toString()}`" v-model="ex4" color="indigo"></v-checkbox>
-           
+              <v-checkbox v-bind:label="`Checkbox 2: ${ex4.toString()}`" v-model="ex4" color="indigo"></v-checkbox>           
           </div>
         </div>
       </div>
@@ -22,8 +21,9 @@ import search from "./public/search.vue";
 export default {
   data(){
     return{
-       ex3: true,
-       ex4: false,
+      text:'选择参会人员',
+      ex3: true,
+      ex4: false
     }
   },
   components:{

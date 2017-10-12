@@ -4,12 +4,10 @@ module.exports = function(){
 			console.log('[join-room]', data);
 			socket.join(data.roomId);
 			fn();
-		});
-		
+		});		
 		socket.on('p2p-obj', function(data){
 			socket.to(data.roomId).emit('p2p-obj', data);
-		});
-		
+		});		
 		next();
 	}
 	

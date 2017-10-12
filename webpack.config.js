@@ -5,8 +5,7 @@
       output: {
           filename: 'bundle.js',
           path: path.resolve(__dirname, 'dist'),
-          publicPath: '/',
-          productionSourceMap: true
+          publicPath: '/dist'
       },
       module: {
           rules: [{
@@ -20,7 +19,7 @@
                   test: /\.(png|svg|jpg|gif)$/,
                   use: [
                       'file-loader',
-                      'url-loader?limit=8192?name=utils.assetsPath("c/image/[name].jpg")'
+                      'url-loader'
                   ]
               },
               {

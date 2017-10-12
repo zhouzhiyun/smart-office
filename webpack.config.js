@@ -2,9 +2,11 @@
 
   module.exports = {
       entry: './src/main.js',
+      devtool: 'inline-source-map',
       output: {
           filename: 'bundle.js',
           path: path.resolve(__dirname, 'dist'),
+
           publicPath: '/'
       },
       module: {
@@ -19,7 +21,7 @@
                   test: /\.(png|svg|jpg|gif)$/,
                   use: [
                       'file-loader',
-                      'url-loader?limit=8192'
+                      'url-loader'
                   ]
               },
               {

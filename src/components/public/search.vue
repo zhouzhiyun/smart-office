@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bottom">
       <div class="search">
         <span class="city" @click="show">{{city}}</span>          
         <ul class="citys" v-if="isShow">
@@ -43,12 +43,15 @@ export default {
 }
 </script>
 
-<style scoped>      
+<style scoped>     
+.bottom{
+  border-bottom: 1px solid #ccc;
+} 
 .search{
   border:1px solid #ccc;
   border-radius:4px;
   height:38px;
-  margin:20px 15px;
+  margin:20px 15px ;
   line-height:38px;
   position:relative;
   background-color: #fff;
@@ -64,14 +67,14 @@ export default {
 }
 .search .citys{
   position:absolute;
-  top:48px;
+  top:38px;
   background-color:#FAEBD7;
   color:#555;
   width:100px;
   padding:10px;
   text-align:center;
   font-size: 14px;
-  z-index: 9999;
+  z-index: 1;
 
 }
 .search .citys li{

@@ -5,12 +5,12 @@
         <i class="iconfont">&#xe618;</i>
         预约会议
       </router-link>
-      <router-link to="/" tag="div" class="meetings-list">
-        <i class="iconfont">&#xe618;</i>
+      <router-link to="/instantconference" tag="div" class="meetings-list">
+        <i class="iconfont">&#xe60b;</i>
         即时会议
       </router-link>
-      <router-link to="/" tag="div" class="meetings-list">
-        <i class="iconfont">&#xe618;</i>
+      <router-link to="/meeting" tag="div" class="meetings-list">
+        <i class="iconfont">&#xe65c;</i>
         开始开会
       </router-link>
     </div>
@@ -18,12 +18,12 @@
       <div class="messages-title">会议中心</div>
       <div class="messages-list" v-for="meetingMessage in meetingMessages">
         <div>
-          <span>yanglei</span>
+          <span class="message-name">yanglei</span>
           <span class="message-title">会议中心...</span>
         </div>
         <img src="../image/galaxy.jpg">
         <div>
-          <span class="date">2017/10/11 星期二</span>
+          <span class="date">2017/10/11 <i class="message-title">星期二</i></span>
           <span class="time-limit">30分钟</span>
         </div>
       </div>
@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import img from '../image/galaxy.jpg'
+import img from '../image/galaxy.jpg';
 export default {
   data(){
     return{
@@ -58,8 +58,8 @@ export default {
   align-items: center;
   background-color: rgb(255, 255, 255);
   text-align: center;
+  font-size: 14px;
 }
-
 .meetings .meetings-list i {
   display: block;
   border: 1px solid rgb(244, 244, 244);
@@ -71,19 +71,29 @@ export default {
 
 .messages .messages-title {
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.01);
+  background-color: #eee;
   border-top: #ddd;
   padding: 6px 15px 6px;
   font-size: 16px;
+  
 }
 
 .messages-list {
   padding: 8px 15px;
+  font-size: 14px;
+  border-bottom: 1px solid #ccc;
 }
-
+.messages-list .message-title{
+  margin-left: 10px;
+}
 .messages-list img {
   width: 100%;
   height: 80px;
+  margin: 5px 0 5px;
+}
+.messages-list .time-limit{
+  float: right;
+  display:inline-block;
 }
 </style>
 

@@ -2,13 +2,13 @@
   <div>
       <search></search>
       <div class="part">       
-       <v-card>
+       <v-card class="contacts">
         <v-list>
           <v-list-group v-for="item in items" :value="item.active" v-bind:key="item.title">
             <v-list-tile slot="item" @click="">
-              <v-list-tile-action>
+              <!-- <v-list-tile-action>
                 <v-icon>{{ item.action }}</v-icon>
-              </v-list-tile-action>
+              </v-list-tile-action> -->
               <v-list-tile-content>
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
               </v-list-tile-content>
@@ -38,15 +38,15 @@ export default {
       items: [
         {
           action: 'local_activity',
-          title: 'Attractions',
+          title: '部门1',
+          active: true,
           items: [
             { title: 'List Item' }
           ]
         },
         {
           action: 'restaurant',
-          title: 'Dining',
-          active: true,
+          title: '部门2',
           items: [
             { title: 'Breakfast & brunch' },
             { title: 'New American' },
@@ -55,35 +55,35 @@ export default {
         },
         {
           action: 'school',
-          title: 'Education',
+          title: '部门3',
           items: [
             { title: 'List Item' }
           ]
         },
         {
           action: 'directions_run',
-          title: 'Family',
+          title: '部门4',
           items: [
             { title: 'List Item' }
           ]
         },
         {
           action: 'healing',
-          title: 'Health',
+          title: '部门5',
           items: [
             { title: 'List Item' }
           ]
         },
         {
           action: 'content_cut',
-          title: 'Office',
+          title: '部门6',
           items: [
             { title: 'List Item' }
           ]
         },
         {
           action: 'local_offer',
-          title: 'Promotions',
+          title: '部门7',
           items: [
             { title: 'List Item' }
           ]
@@ -101,6 +101,12 @@ export default {
 </script>
 
 <style scoped>      
-
+.part{
+  overflow-y: auto;
+  height: 100%;
+}
+.contacts{
+  box-shadow: none;
+}
 </style>
 

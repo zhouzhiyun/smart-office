@@ -1,52 +1,64 @@
 <template>
   <div>
-      <my-twohead></my-twohead>
+      <my-twohead :text="text"></my-twohead>
       <div class="content">
-        <div class="content-people">          
-          <span class="p-title">参会人员 1/16</span>
-          <div class="lists">
-            <div class="list">
-              <!--<img src="../image/cat.jpg" alt="">-->
-              <div class="img"></div>
-              <span class="name">发起者</span>
-            </div>
-            <div class="list">
-              <!--<img src="../image/cat.jpg" alt="">-->
-              <router-link to="/choose" tag="div" class="img"></router-link>
-              <span class="name">添加</span>
-            </div>
-          </div>
-        </div>
+        <my-show></my-show>
+        <!-- 会议主题 -->
         <div class="theme">
 
+          <form>
+            <div class="form-input">
+              <label for="">会议主题</label>
+              <input type="text" placeholder="会议主题">
+            </div>
+            <div class="form-input">
+              <label for="">会议时间</label>
+              <input type="date" placeholder="会议日期">
+              <input type="time" placeholder="会议时间">
+            </div>
+            <div class="form-input">
+              <label for="">预估时间</label>
+              <input type="text" placeholder="会议预估时间">
+            </div>
+            <div class="form-input">
+              <label for="">会议地点</label>
+              <input type="text" placeholder="会议地点">
+            </div>
+          </form>
+          <v-btn
+            color="info"
+            :loading="loading4"
+            @click.native="loader = 'loading4'"
+            :disabled="loading4"
+            class="btn"
+            >
+            预约会议
+            <span slot="loader" class="custom-loader">
+                <v-icon light>cached</v-icon>
+            </span>
+          </v-btn>
         </div>
       </div>
   </div>
 </template>
 <script>
 import myTwohead from './public/twoheader.vue';
-
+import myShow from './public/show.vue';
 export default {
  
   data () {
     return {
-      name: '',
-      email: '',
-      select: null,
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4'
-      ],
-      checkbox: false
+      text:'预约会议',
+      
+      loading4:false
     }
   },
   methods: {
    
   },
   components:{
-    myTwohead
+    myTwohead,
+    myShow
   }
 }
 </script>
@@ -85,15 +97,38 @@ export default {
 .lists .list .name{
   font-size: 12px;
 }
-.theme{
-  margin:15px 10px;
+.theme form{
+   margin:20px 10px;
+   font-size: 16px;
 }
-.theme .theme-cont{
+.theme form .form-input{
+  display:flex;
+  margin:20px 0;
+}
+.theme form label{
+  margin-right:15px;
+}
+.theme form input{
   border-bottom:1px solid #ccc;
+  flex:1;
+  margin-right:2px;
+  padding-left:10px;
+}
+/* .theme .theme-cont{
+  border-bottom:1px solid #ccc;
+  margin:15px 10px;
 }
 .menu .menu__content{
     top: 42px;
     left: 10%;
+} */
+
+.btn{
+    position: absolute;
+    bottom:15px;
+    margin:0 2%;
+    width:96%;
+
 }
 </style>
 

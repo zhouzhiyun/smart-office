@@ -38,13 +38,13 @@ export default {
       meetingMessages:[
         {
           name:"",
-          url:img,
           title:"",
           date:"",
           timeLimit:"",
           success:false
         }
-      ]
+      ],
+       url:require('../image/galaxy.jpg')
     }
   }
 

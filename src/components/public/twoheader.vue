@@ -21,7 +21,7 @@ export default {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        background-color: #9B34F2;
+        background-color: #00bcd4;
         font-size: 18px;
     }
     #twoHeader>div{

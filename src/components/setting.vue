@@ -4,48 +4,18 @@
     <div id="setting">
       <div class="headImage">
         <span>头像</span>
+        <span class="image" @click="openFileIIs" v-model="photo"></span>
       </div>
-      <!-- <div class="name">
-        <label>名字</label>
-        <input type="text" class="enters">
-      </div>
-      <div class="department">
-        <label>部门</label>
-        <input type="text" class="enters">
-      </div>
-      <div class="address">
-        <label>城市</label>
-        <input type="text" class="enters">
-      </div> -->
-
-      <v-form v-model="valid" class="name">
-        <v-text-field label="名字" v-model="name" :rules="nameRules" :counter="10" required></v-text-field>
-      </v-form>
-
-     
-  <v-app id="inspire">
-    <v-card color="grey lighten-4" flat>
-      <v-card-text>
-        <v-container fluid>
-          <v-layout row wrap>
-            <v-flex xs12 sm6>
-              <v-subheader v-text="'Autocomplete'"></v-subheader>
-            </v-flex>
-            <v-flex xs12 sm6>
-              <v-select
-                v-bind:items="states"
-                v-model="a1"
-                label="Select"
-                autocomplete
-              ></v-select>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-card-text>
-    </v-card>
-  </v-app>
-
-     
+    </div>
+    <div id="uname">
+      <span>姓名</span>
+      <input type="text" class="name" placeholder="请输入您的姓名" v-model="name">
+    </div>
+    <div id="branch">
+        <span>部门</span>
+        <select id="select">
+          <option v-for="path in branch" class="option" value="path">{{path}}</option>
+        </select>
     </div>
     <div id="button">
         <input type="button" value="保存" class="save btns">
@@ -59,24 +29,18 @@ export default {
   data(){
     return {
       text: '个人信息',
-      valid: false,
       name: '',
-      nameRules: [
-          (v) => !!v || '名字不能为空',
-          (v) => v.length <= 10 || 'Name must be less than 10 characters'
-        ],
-        select: { state: 'Florida', abbr: 'FL' },
-        items: [
-          { state: 'Florida', abbr: 'FL' },
-          { state: 'Georgia', abbr: 'GA' },
-          { state: 'Nebraska', abbr: 'NE' },
-          { state: 'California', abbr: 'CA' },
-          { state: 'New York', abbr: 'NY' }
-        ]
+      photo: '',
+      branch:['我的部门','财务部','人事部','行政部','销售部','设计部','策划部','研发部']
     }
   },
   components:{
     myTwoheader
+  },
+  methods:{
+    openFileIIs:function(filename){
+     console.log(123)
+    }
   }
 }
 </script>
@@ -85,33 +49,55 @@ export default {
   #setting{
     width: 100%;
     height: 100%;
-    font-size: 16px;
+    font-size: 18px;
   }
   .headImage{
     width: 100%;
-    height: 65px;
+    height: 70px;
     line-height: 65px;
     margin-top: 20px;
     padding: 0 0 0 15px;
     background-color: white;
     border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .name{
-    height: 100px;
+  .image{
+    display: block;
+    width: 50px;
+    height: 50px;
+    float: right;
+    border: 1px dashed red;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  #branch,#uname{
+    width: 100%;
+    height: 70px;
     border-bottom: 1px solid #ccc;
     padding: 0 15px;
-
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .depart{
-    height: 100px;
+  .name{
+    height: 30px;
+    border-bottom: 1px solid #ccc;
   }
+  .name:focus{
+    border-bottom: 1px solid blue;
+  }
+  
   .btns{
     width:calc(100% - 30px);
     height: 35px;
     margin-left: 15px;
-    background-color: #D15FEE;
+    background-color: #0000CD;
     border-radius: 4px;
     font-size: 15px;
+    color: white;
   }
   .save{
     margin-bottom: 20px;
@@ -120,6 +106,16 @@ export default {
     width: 100%;
     position: absolute;
     bottom: 15px;
+  }
+
+  #select{
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    width: 220px;
+  }
+  .option{
+    font-size: 12px;
   }
 </style>
 

@@ -1,13 +1,12 @@
 <template>
     <div id="head">
-        <div id="cover" v-show="isShowHeadMore" @click="show"></div>
-        <div class="img" @click="setting"><img src="../../image/cat.jpg"></div>
-        <div class="headTitle"><b>会议</b></div>
+        <div class="img" @click="setting"><img src="../../image/cat.jpg" alt=""></div>
+        <div class="headTitle"><b>{{ title }}</b></div>
         <div class="plus">
             <span class="iconfont" @click="show">&#xe601;</span>
         </div>
         
-        <div class="more" v-show="isShowHeadMore">
+        <div class="more" v-show="this.$store.state.isShowHeadMore">
             <p class="iconfont icon-saoyisao">&nbsp;&nbsp;扫一扫</p>
             <p @click="info" class="iconfont icon-xiaoxi">&nbsp;&nbsp;消&nbsp;&nbsp;&nbsp;息</p>
         </div>
@@ -19,16 +18,13 @@
 export default {
     data () {
         return {
-            isShowHeadMore: false
+            
         }
     },
+    props:['title'],
     methods: {
         show: function () {
-           if(this.isShowHeadMore === true){
-                this.isShowHeadMore = false;
-            }else{
-                this.isShowHeadMore = true;
-            } 
+           this.$store.commit('ShowHeadMore')
         },
         setting: function () {
             this.$router.push('/setting')
@@ -36,13 +32,6 @@ export default {
         info: function () {
             this.$router.push('/info')
         }
-    },
-    updated: function () {
-        var cover = document.getElementById('cover');
-        // console.log(cover);
-        cover.style.width = screen.width + 'px';
-        cover.style.height = screen.height + 'px';
-        
     }
 }
 </script>
@@ -52,7 +41,7 @@ export default {
         width: 100%;
         height: 44px;
         border-bottom: 1px solid #ccc;
-        background-color: #9B34F2;
+        background-color: #00bcd4;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -95,11 +84,7 @@ export default {
         font-size: 18px;
     }
 
-    #cover{
-       opacity: 0;
-        position: absolute;
-        top: 0;
-    }
+    
     
 </style>
 

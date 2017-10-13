@@ -24,6 +24,7 @@
     "grunt": "^1.0.1",
     "grunt-contrib-stylus": "^1.2.0",
     "grunt-contrib-watch": "^1.0.0",
+    "jquery": "^3.2.1",
     "style-loader": "^0.18.2",
     "stylus-loader": "^3.0.1",
     "url-loader": "^0.6.2",

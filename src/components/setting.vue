@@ -4,12 +4,12 @@
     <div id="setting">
       <div class="headImage">
         <span>头像</span>
-        <span class="image" @click="openFileIIs" v-model="photo"></span>
+        <span class="image" @click="openFileIIs" v-model="userinfo.photo"></span>
       </div>
     </div>
     <div id="uname">
       <span>姓名</span>
-      <input type="text" class="name" placeholder="请输入您的姓名" v-model="name">
+      <input type="text" class="name" placeholder="请输入您的姓名" v-model="userinfo.name">
     </div>
     <div id="branch">
         <span>部门</span>
@@ -17,7 +17,10 @@
           <option v-for="path in branch" class="option" value="path">{{path}}</option>
         </select>
     </div>
-    <div id="button">
+    <div>
+      <input type="color" value="#000000">
+    </div>
+    <div id="button" v-show="btnsHide">
         <input type="button" value="保存" class="save btns">
         <input type="button" value="退出" class="singOut btns">
      </div>
@@ -29,9 +32,11 @@ export default {
   data(){
     return {
       text: '个人信息',
-      name: '',
-      photo: '',
-      branch:['我的部门','财务部','人事部','行政部','销售部','设计部','策划部','研发部']
+      btnsHide: '1',
+      branch:['我的部门','财务部','人事部','行政部','销售部','设计部','策划部','研发部'],
+      userinfo:{ 
+        photo:''
+      }
     }
   },
   components:{

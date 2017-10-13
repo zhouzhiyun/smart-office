@@ -7,7 +7,7 @@
           <li @click="cut($event)">重庆</li>
         </ul>        
         <div class="search-cont">
-          <input type="text" placeholder="输入用户名">
+          <input type="text" placeholder="输入用户名" v-model.trim="username" v-on:blur="blur()" v-on:keyup.enter="blur()">
           <!-- <i class="iconfont">&#xe69b;</i>-->
         </div>    
       </div>
@@ -20,9 +20,10 @@ export default {
     return{
       isShow:false,
       city:"北京",
-      
+      username:'' 
     }
   },
+  
   methods:{
     show: function () {
       if(this.isShow === true){
@@ -37,6 +38,10 @@ export default {
         this.city=target.innerHTML;
         this.isShow = false;
       }
+    },
+    blur:function(){
+      console.log(this.username);
+      this.$emit('transfer',this.username);
     }
   }
   

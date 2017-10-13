@@ -1,6 +1,6 @@
 <template>
   <div>
-      <search></search>
+      <search  @transfer="enter"></search>
       <div class="part">       
        <v-card class="contacts">
         <v-list>
@@ -41,14 +41,14 @@ export default {
           title: '部门1',
           active: true,
           items: [
-            { title: 'List Item' }
+            { title: '张三' }
           ]
         },
         {
           action: 'restaurant',
           title: '部门2',
           items: [
-            { title: 'Breakfast & brunch' },
+            { title: '李四' },
             { title: 'New American' },
             { title: 'Sushi' }
           ]
@@ -92,6 +92,20 @@ export default {
     }
   },
   methods:{
+    enter:function(name){      
+      for(var i=0;i<this.items.length;i++){       
+        for(var j=0;j<this.items[i].items.length;j++){
+          console.log(name==this.items[i].items[j].title);
+          if(name==this.items[i].items[j].title){
+            this.items[i].active=true;
+            break;
+          }else{
+             this.items[i].active=false;
+          }
+        }
+      }
+      
+    }
   },
   components:{
     search
@@ -107,6 +121,9 @@ export default {
 }
 .contacts{
   box-shadow: none;
+}
+.list__tile__title.tile{
+  color:#f00;
 }
 </style>
 

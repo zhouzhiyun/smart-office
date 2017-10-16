@@ -7,7 +7,11 @@ import Makeoffice from '../components/makeAppointment.vue';
 import Instantconference from '../components/instantconference.vue';
 import Meeting from '../components/meeting.vue';
 import Choose from '../components/choose.vue';
-import Info from '../components/info.vue'
+import Info from '../components/info.vue';
+
+
+// 2017/10/16 （可以删除）
+import Drawing from '../components/drawing.vue';
 
 
 Vue.use(VueRouter)
@@ -20,6 +24,8 @@ export default new VueRouter({
         {path: '/meeting', component: Meeting},//开始开会
         {path: '/choose', component: Choose},//选择参会人员
         {path: '/setting', component: Setting},
-        {path: '/info', component: Info}
+        {path: '/info', component: Info},
+
+        {path: '/drawing', component: Drawing}
     ]
 })

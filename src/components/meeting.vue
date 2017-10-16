@@ -12,6 +12,7 @@
                 :loading="loading4"
                 @click.native="loader = 'loading4'"
                 :disabled="loading4"
+                @click="go"
                 >
                 开始开会
                 <span slot="loader" class="custom-loader">
@@ -33,7 +34,9 @@ export default {
     }
   },
   methods: {
-   
+   go:function(){
+       this.$router.push('/drawing')
+   }
   },
   components:{
     myTwohead

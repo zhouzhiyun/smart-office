@@ -8,9 +8,6 @@
           path: path.resolve(__dirname, 'dist'),
           publicPath: '/'
       },
-      alias:{
-          'jquery': path.resolve(__dirname, '../node_modules/jquery/src/jquery'),
-      },
       module: {
           rules: [{
                   test: /\.css$/,

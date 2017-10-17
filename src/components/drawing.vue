@@ -6,7 +6,6 @@
             <input type="color" id="lineColor">
             <input type="range" id="lineWidth" value="3" min="1" max="16" step="1">
             <button @click="drawLine">画笔</button>
-            <button @click="eraser">橡皮</button>
             <button @click="revoked">撤销</button>
             <button @click="clear">清除</button>
             <!-- <button @click="save">保存</button> -->
@@ -19,6 +18,7 @@
 <script>
 var draw;
 var canvasImage = [];
+
 class Draw {
     constructor(el) {
         this.el = el
@@ -33,64 +33,49 @@ class Draw {
         }
     }
     // 
-    init(btn) {
-        var that = this; 
-        that.copy();
-        this.canvas.addEventListener('touchstart', function(event) { 
+    init() {
+        var that = this;
+        this.canvas.addEventListener('touchstart', function(event) {
             that.drawBegin(event)
         })
         this.canvas.addEventListener("touchmove",function(event){
             that.drawing(event)
         })
         this.canvas.addEventListener('touchend', function(event) {  
-            that.drawEnd()
-            that.drawing = function(){};
-           
+            that.drawEnd();
+            that.copy();
         })
-        // this.clear(btn)
     }
     // 
     drawBegin(e) {
         var that = this;
         this.ctx.strokeStyle = document.getElementById('lineColor').value;
         this.ctx.lineWidth = document.getElementById('lineWidth').value;
+        this.ctx.beginPath();
         this.ctx.lineCap="round";
         this.ctx.moveTo(
             e.changedTouches[0].clientX - this.stage_info.left,
             e.changedTouches[0].clientY - this.stage_info.top
         )
-        this.path.beginX = e.changedTouches[0].clientX - this.stage_info.left
-        this.path.beginY = e.changedTouches[0].clientY - this.stage_info.top
-        
-    }
-    // 
-    handler(){
-        
     }
     // 
     drawing(e) {
-        // console.log(this)
         this.ctx.lineTo(
             e.changedTouches[0].clientX - this.stage_info.left,
             e.changedTouches[0].clientY - this.stage_info.top
         )
-        this.path.endX = e.changedTouches[0].clientX - this.stage_info.left
-        this.path.endY = e.changedTouches[0].clientY - this.stage_info.top
         this.ctx.stroke()
     }
     // 
     drawEnd(e) {
         var that = this;
-        that.copy();
+        this.ctx.lineWidth = 0;
+        
     }
     // 
     copy(){
         var canvasImg = this.ctx.getImageData(0,0,300,300);
         canvasImage.push(canvasImg);
-    }
-    // 
-    line() {
-        this.init()
     }
     // 
     revoked() {
@@ -102,26 +87,7 @@ class Draw {
         }
     }
     // 
-    eraser() {
-        var that = this;
-        this.ctx.beginPath();
-        this.ctx.strokeStyle = null;
-        // this.canvas.addEventListener('touchstart',function(){
-        //     that.ctx.beginPath();
-        // })
-        this.canvas.addEventListener('touchmove',function(e){
-            var clearX = e.changedTouches[0].clientX - that.stage_info.left;
-            var clearY = e.changedTouches[0].clientY - that.stage_info.top;
-            that.clearPath(clearX,clearY);
-        })
-    }
-    // 
-    clearPath(x,y) {
-        var lineWidth = document.getElementById('lineWidth').value;
-        this.ctx.clearRect(x,y,10,10);
-    }
-    // 
-    clear(btn) {
+    clear() {
         this.ctx.clearRect(0, 0, 300, 300)
     }
     // 保存成图片
@@ -138,12 +104,13 @@ export default {
         }
     },
     mounted() {
-        draw=new Draw('canvas');
+        draw = new Draw('canvas');
         draw.init();
+        draw.copy();
     },
     methods:{
         drawLine: function (){
-            draw.line();
+            draw.init();
         },
         clear:function(){
             draw.clear();

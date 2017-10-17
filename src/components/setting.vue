@@ -2,28 +2,27 @@
   <div>
     <my-twoheader :text="text"></my-twoheader>
     <div id="setting">
+
       <div class="headImage">
         <span>头像</span>
         <span class="image" @click="openFileIIs" v-model="userinfo.photo"></span>
       </div>
-    </div>
-    <div id="uname">
-      <span>姓名</span>
-      <input type="text" class="name" placeholder="请输入您的姓名" v-model="userinfo.name">
-    </div>
-    <div id="branch">
+      <div id="uname">
+        <span>姓名</span>
+        <input type="text" class="name" placeholder="请输入您的姓名" v-model="userinfo.name">
+      </div>
+      <div id="branch">
         <span>部门</span>
         <select id="select">
           <option v-for="path in branch" class="option" value="path">{{path}}</option>
         </select>
-    </div>
-    <div>
-      <input type="color" value="#000000">
-    </div>
-    <div id="button" v-show="btnsHide">
+      </div>
+
+      <div id="button" v-show="btnsHide">
         <input type="button" value="保存" class="save btns">
         <input type="button" value="退出" class="singOut btns">
-     </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -117,7 +116,7 @@ export default {
     font-size: 16px;
     border-bottom: 1px solid #ccc;
     display: inline-block;
-    width: 220px;
+    width: 240px;
   }
   .option{
     font-size: 12px;

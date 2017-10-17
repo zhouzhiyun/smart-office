@@ -1,0 +1,15 @@
+{
+    "contacts":[
+        {
+            "id":"1",
+            "name":"张三",
+            "sex":"男",
+            "telephone":"123456787909",
+            "company":"仁光科技有限公司",
+            "email":"zahngsan@renguang.com.cn",
+            "apartment":"研发部/软件开发",
+            "position":"前端",
+            "pictureUrl":""
+        }
+    ]
+}

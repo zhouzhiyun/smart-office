@@ -127,13 +127,13 @@ body {
     margin: 0 auto;
     min-width: 320px;
     color: #555;
-    padding-bottom: 8%;
     background: #fef9f1;
 }
 
 html,
 body {
     height: 100%;
+    width: 100%;
     overflow: hidden;
 }
 

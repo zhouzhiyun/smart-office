@@ -9,6 +9,12 @@
               <div class="img"></div>
               <span class="name">发起者</span>
             </div>
+            <div class="list" v-for="chooseuser in chooseUsers">
+              <!--<img src="../image/cat.jpg" alt="">-->
+              <div class="img"></div>
+              <span class="name">{{chooseuser.name}}</span>
+            </div>
+
             <div class="list">
               <!--<img src="../image/cat.jpg" alt="">-->
               <router-link to="/choose" tag="div" class="img"></router-link>
@@ -20,18 +26,22 @@
   </div>
 </template>
 <script>
-export default {
- 
+export default { 
   data () {
     return {
-     
+           
     }
   },
   methods: {
    
   },
-  components:{
-   
+  computed:{
+    chooseUsers:function(){
+      return this.$store.state.chooseUsers;
+    }
+  },
+  destroyed:function(){
+    // this.$store.commit('ChooseUsers',[]);
   }
 }
 </script>

@@ -8,7 +8,7 @@ import Instantconference from '../components/instantconference.vue';
 import Meeting from '../components/meeting.vue';
 import Choose from '../components/choose.vue';
 import Info from '../components/info.vue';
-
+import Start from '../components/start.vue'
 
 // 2017/10/16 （可以删除）
 import Drawing from '../components/drawing.vue';
@@ -25,6 +25,7 @@ export default new VueRouter({
         {path: '/choose', component: Choose},//选择参会人员
         {path: '/setting', component: Setting},
         {path: '/info', component: Info},
+        {path: '/start', component: Start},
 
         {path: '/drawing', component: Drawing}
     ]

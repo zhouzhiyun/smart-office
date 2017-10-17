@@ -4,7 +4,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state:{
-        isShowHeadMore: false
+        isShowHeadMore: false,
+        chooseUsers:[]
     },
     getter:{
 
@@ -16,6 +17,9 @@ export default new Vuex.Store({
             }else{
                 state.isShowHeadMore = true;
             } 
+        },
+        ChooseUsers:function(state,chooseusers){
+            state.chooseUsers=chooseusers;
         }
     },
     actions:{

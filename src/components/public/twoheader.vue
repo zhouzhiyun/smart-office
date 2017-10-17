@@ -8,7 +8,10 @@
 export default {
   methods:{
       goBack: function () {
-          this.$router.go(-1)
+          this.$router.go(-1);
+          if(this.text=="预约会议" ||this.text=="即时会议" ){
+              this.$store.commit('ChooseUsers',[]);
+          }
       }
   },
   props:['text']

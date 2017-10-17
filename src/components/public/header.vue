@@ -1,6 +1,6 @@
 <template>
     <div id="head">
-        <div class="img" @click="setting"><img src="../../image/cat.jpg" alt=""></div>
+        <div class="img" @click="setting"><img src="/image/cat.jpg" alt=""></div>
         <div class="headTitle"><b>{{ title }}</b></div>
         <div class="plus">
             <span class="iconfont" @click="show">&#xe601;</span>

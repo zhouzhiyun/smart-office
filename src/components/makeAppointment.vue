@@ -81,15 +81,15 @@ export default {
        alert('所有会议的内容不能为空！');
        return;
      }
+     this.$store.commit('ChooseUsers',[]);
      this.$router.push('/home');
    },
    cancel:function(){
+     this.$store.commit('ChooseUsers',[]);
      this.$router.push('/home');
    }
   },
   created:function(){
-     var _body=document.getElementsByTagName('body')[0];
-    _body.style.height=_body.clientHeight+"px";
   },
   components:{
     myTwohead,
@@ -149,24 +149,20 @@ export default {
   margin-right:2px;
   padding-left:10px;
 }
-/* .theme .theme-cont{
-  border-bottom:1px solid #ccc;
-  margin:15px 10px;
-}
-.menu .menu__content{
-    top: 42px;
-    left: 10%;
-} */
-
 .btns{
     position: absolute;
+    left:0;
     bottom:15px;
-    margin:0 2%;
     width:96%;
+    margin:0 2%;
+
 }
-.btn{
-  width:45%;
-  display:inline-block;
+.btns button{
+ margin:0;
+ width:47%;
+}
+.btns button:first-child{
+  margin-right: 2%;
 }
 </style>
 

@@ -1,21 +1,22 @@
 <template>
   <div>
       <my-twohead :text="text"></my-twohead>
-      <search></search>
+      <search @transfer="enter"></search>
       <div class="part">
         <div class="part-list">
           <div class="part-title">
             研发部
           </div>
-          <div class="part-checkbox">           
-              <v-checkbox v-bind:label="`Checkbox 2: ${ex3.toString()}`" v-model="ex3" color="indigo"></v-checkbox>
-              <v-checkbox v-bind:label="`Checkbox 2: ${ex4.toString()}`" v-model="ex4" color="indigo"></v-checkbox>           
+          <div class="part-checkbox">
+            <div class="checkbox-list" v-for="user in users">
+              <v-checkbox v-bind:label="user.name" v-model="user.flag" :value="user.name" color="indigo"></v-checkbox>              
+            </div>         
           </div>
         </div>
         <v-btn
           color="info"
           :loading="loading4"
-          @click.native="loader = 'loading4'"
+          @click.native="sure"
           :disabled="loading4"
           class="btn"
           >
@@ -34,14 +35,48 @@ export default {
   data(){
     return{
       text:'选择参会人员',
-      ex3: true,
-      ex4: false,
+      users:[
+        {name:'张三',flag:false},
+        {name:'李四',flag:false}
+      ],
       loading4:false
+    }
+  },
+  created:function(){
+    console.log('sss');
+    for(var i in this.chooseUsers){
+      for(var j in this.users){
+        console.log(this.users[j]);
+        if(this.chooseUsers[i].name==this.users[j].name){
+          this.users[j].flag=true;
+        }
+      }
+    }
+  },
+  methods:{
+    //搜索数据
+    enter:function(name){
+
+    },
+    sure:function(){
+      var us=[];
+      for( var i=0;i<this.users.length;i++){
+        if(this.users[i].flag){
+          us.push(this.users[i]);
+        }
+      }
+      this.$store.commit('ChooseUsers',us);
+      this.$router.go(-1);
     }
   },
   components:{
     myTwohead,
     search
+  },
+   computed:{
+    chooseUsers:function(){
+      return this.$store.state.chooseUsers;
+    }
   }
 }
 </script>

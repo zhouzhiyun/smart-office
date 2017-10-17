@@ -8,7 +8,7 @@
         </ul>        
         <div class="search-cont">
           <input type="text" placeholder="输入用户名" v-model.trim="username" v-on:blur="blur()" v-on:keyup.enter="blur()">
-          <!-- <i class="iconfont">&#xe69b;</i>-->
+          <i class="iconfont sr" @click="blur">&#xe69b;</i>
         </div>    
       </div>
       
@@ -99,8 +99,12 @@ export default {
   padding-left:10px;
   font-size:16px;
 }
-.search .search-cont .icon-font{
-
+.search .search-cont .sr{
+  display:inline-block;
+  width:20px;
+  position: absolute;
+  top:-2px;
+  right:10px;
 }
 
 </style>

@@ -36,7 +36,7 @@ export default {
   data(){
     return{
       items: [
-        {
+       {
           action: 'local_activity',
           title: '部门1',
           active: true,
@@ -66,30 +66,12 @@ export default {
           items: [
             { title: 'List Item' }
           ]
-        },
-        {
-          action: 'healing',
-          title: '部门5',
-          items: [
-            { title: 'List Item' }
-          ]
-        },
-        {
-          action: 'content_cut',
-          title: '部门6',
-          items: [
-            { title: 'List Item' }
-          ]
-        },
-        {
-          action: 'local_offer',
-          title: '部门7',
-          items: [
-            { title: 'List Item' }
-          ]
         }
       ]
     }
+  },
+  created:function(){
+   
   },
   methods:{
     enter:function(name){      

@@ -21,7 +21,7 @@
           <span class="message-name">yanglei</span>
           <span class="message-title">会议中心...</span>
         </div>
-        <img src="../image/galaxy.jpg">
+        <img src="/image/galaxy.jpg">
         <div>
           <span class="date">2017/10/11 <i class="message-title">星期二</i></span>
           <span class="time-limit">30分钟</span>
@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-import img from '../image/galaxy.jpg';
+
 export default {
   data(){
     return{
@@ -43,8 +43,7 @@ export default {
           timeLimit:"",
           success:false
         }
-      ],
-       url:require('../image/galaxy.jpg')
+      ]
     }
   }
 
@@ -59,6 +58,9 @@ export default {
   background-color: rgb(255, 255, 255);
   text-align: center;
   font-size: 14px;
+}
+.meetings .meetings-list{
+    
 }
 .meetings .meetings-list i {
   display: block;
@@ -82,6 +84,8 @@ export default {
   padding: 8px 15px;
   font-size: 14px;
   border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  margin-bottom: 10px;
 }
 .messages-list .message-title{
   margin-left: 10px;
